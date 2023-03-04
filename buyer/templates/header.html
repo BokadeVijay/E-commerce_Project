@@ -1,0 +1,199 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Luxury Furnish an E-Commerce online Shopping Category Flat Bootstarp responsive Website Template| Home :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Luxury Furnish Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'js/simpleCart.min.js' %}"> </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- Custom Theme files -->
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!--webfont-->
+<link href='//fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<!--//webfont-->
+<script src="{% static 'js/jquery.easydropdown.js' %}"></script>
+<!-- Add fancyBox main JS and CSS files -->
+<script src="j{% static 's/jquery.magnific-popup.js' %}" type="text/javascript"></script>
+<link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet" type="text/css">
+		<script>
+			$(document).ready(function() {
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+			});
+		});
+		</script>
+</head>
+<body>
+<div class="header">	
+      <div class="container"> 
+         <div class="header-top">
+			<div class="header_right">
+      		 <div class="">
+				<a href="index.html">
+					{% if user_data %}
+					<h6><img src="{{user_data.pic.url}}" alt="" width="110px"><br><br><a style="color: rgba(139, 0, 132, 0.689); background-color: rgb(255, 240, 253);"><h4>{{user_data.first_name}}</h4></a>
+					{% endif %}</a>
+			 </div>
+			</div>
+		   <div class="header_left">
+			 <ul class="social">
+				<li><a href=""> <i class="fb"> </i> </a></li>
+				<li><a href=""><i class="tw"> </i> </a></li>
+				<li><a href=""><i class="utube"> </i> </a></li>
+				<li><a href=""><i class="pin"> </i> </a></li>
+				<li><a href=""><i class="instagram"> </i> </a></li>
+			 </ul>
+			 {% if user_data %}
+			 
+			 {% else %}
+			 <li>
+				
+				<a><b><h3>User</h3></b></a>
+				
+				</li>
+
+			 {% endif %}
+		    
+			<div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
+		 </div>  
+		 <div class="banner_wrap">
+			<div class="bannertop_box">
+   		 		<ul class="login">
+					{% if user_data %}
+					<li class="login_text"><a href="{% url 'logout' %}">Logout</a></li>
+					<li class="wish"><a href="{% url 'index' %}">Home</a></li>
+
+					
+					{% else %}
+   		 			<li class="login_text"><a href="{% url 'login' %}">Login</a></li>
+   		 			<li class="wish"><a href="checkout.html">Wish List</a></li>
+						{% endif %}
+   		 			<div class='clearfix'></div>
+   		 		</ul>
+   		 		<div class="cart_bg">
+	   		 	  <ul class="cart">
+	   		 		 <a href="checkout.html">
+					    <h4><i class="cart_icon"> </i><p>Cart: <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</p><div class="clearfix"> </div></h4>
+					 </a>
+				     <h5 class="empty"><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></h5>
+				     <div class="clearfix"> </div>
+                  </ul>
+	   		 	</div>
+			  	<ul class="quick_access">
+   		 			<li class="view_cart"><a href="checkout.html">View Cart</a></li>
+   		 			<li class="check"><a href="checkout.html">Checkout</a></li>
+   		 			<div class='clearfix'></div>
+   		 		</ul>
+   		 		<div class="search">
+	  			   <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+				   <input type="submit" value="">
+	  			</div>
+				  {% if user_data %}
+				  <div></div>
+				  {% else %}
+	  			<div class="welcome_box">
+	  				<h3>Welcome to windsur</h3>
+	  				<p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+	  			</div>
+   		 	</div>
+   		 	<div class="banner_right">
+   		 		<h1>Lorem Ipsum simply <br>dummy text</h1>
+   		 		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+   		 		<a href="#" class="banner_btn">Buy Now</a>
+   		 	</div>
+				{% endif %}
+   		 	<div class='clearfix'></div>
+	    </div>
+	   </div>
+	</div>
+	
+                    {% block content %}
+
+
+
+
+
+
+                    {% endblock %}
+                     
+                <div class="footer">
+                    <div class="container">
+                        <div class="footer-grid">
+                            <h3>Category</h3>
+                            <ul class="list1">
+                              <li><a href="index.html">Home</a></li>
+                              <li><a href="about.html">About us</a></li>
+                              <li><a href="about.html">Eshop</a></li>
+                              <li><a href="about.html">Features</a></li>
+                              <li><a href="about.html">New Collections</a></li>
+                              <li><a href="typo.html">Typo</a></li>
+                              <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-grid">
+                            <h3>Our Account</h3>
+                            <ul class="list1">
+                              <li><a href="login.html">Your Account</a></li>
+                              <li><a href="contact.html">Personal information</a></li>
+                              <li><a href="contact.html">Addresses</a></li>
+                              <li><a href="#">Discount</a></li>
+                              <li><a href="checkout.html">Orders history</a></li>
+                              <li><a href="about.html">Search Terms</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-grid">
+                            <h3>Our Support</h3>
+                            <ul class="list1">
+                              <li><a href="contact.html">Site Map</a></li>
+                              <li><a href="about.html">Search Terms</a></li>
+                              <li><a href="about.html">Advanced Search</a></li>
+                              <li><a href="about.html">Mobile</a></li>
+                              <li><a href="contact.html">Contact Us</a></li>
+                              <li><a href="contact.html">Mobile</a></li>
+                              <li><a href="contact.html">Addresses</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-grid">
+                            <h3>Newsletter</h3>
+                            <p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                            <div class="search_footer">
+                              <input type="text" class="text" value="Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email';}">
+                              <input type="submit" value="Subscribe">
+                            </div>
+                            <img src="{% static 'images/payment.png' %}" class="img-responsive" alt=""/>
+                        </div>
+                         <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="footer_bottom">
+                    <div class="container">
+                        <div class="copy">
+                           <p>Copyright &copy; 2015 Luxury Furnish. All Rights Reserved . Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                        </div>
+                    </div>
+                </div>
+            </body>
+            </html>		

@@ -1,0 +1,104 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+	
+    <div class="main">
+	   <div class="container">
+		  <div class="register">
+		  	  <form action="{% url 'edit_profile' %}" method="post" enctype="multipart/form-data"> 
+				{% csrf_token %}
+				<p><b>{{msg}}</b></p>
+				 <div class="register-top-grid">
+					<h3>PROFILE</h3>
+					 <div>
+						<a style="color:aqua"><b>First Name</b><label>*</label></a>
+						<input type="text"name = 'first_name' value="{{user_data.first_name}}"> 
+					 </div>
+					 <div>
+						<a style="color:aqua"><b>Last Name</b><label>*</label></a>
+						<input type="text"name = 'last_name' value="{{user_data.last_name}}"> 
+					 </div>
+					 <div>
+						<a style="color:aqua"><b>Email</b><label>*</label></a>
+						 <input type="text"name = 'email'value="{{user_data.email}}" disabled> 
+					 </div>
+					 
+					 </div>
+				     <div class="register-bottom-grid">
+						   
+							 
+							 <div>
+								<a style="color:aqua"><b>Address</b><label>*</label></a>
+								<input type="text" name = 'address'value="{{user_data.address}}">
+							 </div>
+							 <div>
+								<a style="color:aqua"><b>Phone</b><label>*</label></a>
+								<input type="text" name = 'phone'value="{{user_data.phone}}">
+							 </div>
+                             <div>
+								<a style="color:aqua"><b>Picture</b><label>*</label></a>
+								<input type="file" name = 'pic'>
+							 </div>
+					 </div>
+				
+				<div class="clearfix"> </div>
+				<div class="register-but">
+				   
+					   <input type="submit" value="submit" style="background-color:rgb(37, 220, 20)">
+
+					   
+					   <div class="clearfix"> </div>
+					   
+				   
+				</div>
+			  </form>
+			  <br>
+			  
+				<a href="{% url 'reset' %}">  
+			   <button>Change Password</button>
+		   </a>
+			
+		   </div>
+	     </div>
+	    </div>
+		<div class="container">
+			<!-- <div class="brands">
+				<ul class="brand_icons">
+					<li><img src='{% static "images/icon1.png" %}' class="img-responsive" alt=""/></li>
+					<li><img src='{% static "images/icon2.png" %}' class="img-responsive" alt=""/></li>
+					<li><img src='{% static "images/icon3.png" %}' class="img-responsive" alt=""/></li>
+					<li><img src='{% static "images/icon4.png" %}' class="img-responsive" alt=""/></li>
+					<li class="last"><img src='{% static "images/icon5.png" %}' class="img-responsive" alt=""/></li>
+				</ul>
+			</div> -->
+	    </div>
+	    <!-- <div class="container">
+			<div class="instagram_top">
+				<div class="instagram text-center">
+					<h3>Our Collections</h3>
+				</div>
+				<ul class="instagram_grid">
+					<li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i1.jpg' %}" class="img-responsive"alt=""/></a></li>
+					<li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i2.jpg' %}" class="img-responsive" alt=""/></a></li>
+					<li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i3.jpg' %}" class="img-responsive" alt=""/></a></li>
+					<li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i4.jpg' %}" class="img-responsive" alt=""/></a></li>
+					<li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i5.jpg' %}" class="img-responsive" alt=""/></a></li>
+					<li class="last_instagram"><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i6.jpg' %}" class="img-responsive" alt=""/></a></li>
+					<div class="clearfix"></div>
+					<div id="small-dialog1" class="mfp-hide">
+						<div class="pop_up">
+							<h4>A Sample Photo Stream</h4>
+							<img src="{% static 'images/i_zoom.jpg' %}" class="img-responsive" alt=""/>
+						</div>
+					</div>
+				</ul>
+			</div>
+			<ul class="footer_social">
+				<li><a href="#"><i class="tw"> </i> </a></li>
+				<li><a href="#"> <i class="fb"> </i> </a></li>			
+				<li><a href="#"><i class="pin"> </i> </a></li>
+				<div class="clearfix"></div>
+			</ul>
+	    </div> -->
+    </div>
+    {% endblock %}

@@ -1,0 +1,496 @@
+
+
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Luxury Furnish an E-Commerce online Shopping Category Flat Bootstarp responsive Website Template| Home :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Luxury Furnish Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'js/simpleCart.min.js' %}"> </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- Custom Theme files -->
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!--webfont-->
+<link href='//fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<!--//webfont-->
+<script src="{% static 'js/jquery.easydropdown.js' %}"></script>
+<!-- Add fancyBox main JS and CSS files -->
+<script src="j{% static 's/jquery.magnific-popup.js' %}" type="text/javascript"></script>
+<link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet" type="text/css">
+		<script>
+			$(document).ready(function() {
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+			});
+		});
+		</script>
+</head>
+<body>
+<div class="header">	
+      <div class="container"> 
+         <div class="header-top">
+      		 <div class="logo">
+				<a href="index.html"><h6>Hello</h6><h2>{{user_data.first_name}}</h2></a>
+			 </div>
+		   <div class="header_right">
+			 <ul class="social">
+				<li><a href=""> <i class="fb"> </i> </a></li>
+				<li><a href=""><i class="tw"> </i> </a></li>
+				<li><a href=""><i class="utube"> </i> </a></li>
+				<li><a href=""><i class="pin"> </i> </a></li>
+				<li><a href=""><i class="instagram"> </i> </a></li>
+				
+			 </ul>
+			 {% if user_data %}	
+			 <li>
+			 <a><b><h3></h3></b></a>
+			 </li>
+			 
+
+			 {% else %}
+			 <li>
+				
+				<a><b><h3>User</h3></b></a>
+				
+				</li>
+
+			 {% endif %}
+			
+		    <div class="lang_list">
+			  <select tabindex="4" class="dropdown">
+				{% if user_data %}
+				<option value="" class="label" value=""></option>
+				<option value="1"><a href="{% url 'logout' %}">logout</a></option>
+				
+				
+				<option value="1"></option>
+				{% else %}
+				<option value="1"></option>
+				<option value="1"><li class="login_text"><a href="{% url 'login' %}">Login</a></li></option>
+				<option value="1"><a href="{% url 'register' %}">register</a></option>
+				{% endif %}
+			  </select>
+   			</div>
+			   
+			<div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
+		 </div>  
+		 <div class="banner_wrap">
+			<div class="bannertop_box">
+					
+				
+
+   		 		<ul class="login">
+					{% if user_data %}
+					<li class="login_text"><a href="{% url 'logout' %}">Logout</a></li>
+					<li class="wish"><a href="{% url 'edit_profile' %}">edit_profile</a></li>
+					<br>
+					<li class="wish"><a href="{% url 'edit_profile' %}">Reset_password</a></li>
+
+					{% else %}
+   		 			<li class="login_text"><a href="{% url 'login' %}">Login</a></li>
+					<li class="wish"><a href="{% url 'register' %}">Register</a></li>
+					{% endif %}
+   		 			
+   		 			<div class='clearfix'></div>
+   		 		</ul>
+   		 		<div class="cart_bg">
+	   		 	  <ul class="cart">
+	   		 		 <a href="{% url 'cart' %}">
+					    <h4><i class="cart_icon"> </i><p>Cart: <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</p><div class="clearfix"> </div></h4>
+					 </a>
+				     <h5 class="empty"><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></h5>
+				     <div class="clearfix"> </div>
+                  </ul>
+	   		 	</div>
+			  	<ul class="quick_access">
+   		 			<li class="view_cart"><a href="{% url 'cart' %}">View Cart</a></li>
+   		 			<li class="check"><a href="{% url 'cart' %}">Checkout</a></li>
+   		 			<div class='clearfix'></div>
+   		 		</ul>
+   		 		<div class="search">
+	  			   <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+				   <input type="submit" value="">
+	  			</div>
+	  			<div class="welcome_box">
+	  				<h3>Welcome to windsur</h3>
+	  				<p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+	  			</div>
+   		 	</div>
+			<div class="header-top">
+   		 	<div class="header_right">
+				<a>
+					{% if user_data %}
+					<h6><img src="{{user_data.pic.url}}" alt="" width="115px"></h6>
+					<br>
+					<h4>  <a style="color: rgb(80, 208, 255);"> {{user_data.first_name}}</a> </h4>
+					{% endif %}</a>
+			 </div>
+			 </div>
+   		 	<div class='clearfix'></div>
+	    </div>
+	   </div>
+	</div>
+	<div class="main">
+	  <div class="content_box">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="menu_box">
+				   	  	<h3 class="menu_head">Menu</h3>
+				   	     <ul class="nav">
+					   	  	<li><a href="about.html">About</a></li>
+					   	  	<li><a href="about.html">Living Room</a></li>
+					   	  	<li><a href="about.html">Office Furniture</a></li>
+					   	  	<li><a href="about.html">Bean Bags</a></li>
+					   	  	<li><a href="about.html">Tables</a></li>
+					   	  	<li><a href="about.html">Sofas</a></li>
+					   	  	<li><a href="about.html">Wardrobes</a></li>
+					   	  	<li><a href="about.html">Beds</a></li>
+					   	  	<li><a href="typo.html">Typo</a></li>
+					   	  	<li><a href="about.html">Chairs</a></li>
+					   	  	<li><a href="about.html">Kids Beds</a></li>
+					   	 </ul>
+			   	    </div>
+			   	    <div class="side_banner">
+					   <div class="banner_img"><img src="{% static 'images/pic9.jpg' %}" class="img-responsive" alt=""/></div>
+					   <div class="banner_holder">
+						  <h3>Now <br> is <br> Open!</h3>
+					   </div>
+				    </div>
+				    <div class="tags">
+				    	<h4 class="tag_head">Tags Widget</h4>
+				         <ul class="tags_links">
+							<li><a href="#">Office</a></li>
+							<li><a href="#">Chairs</a></li>
+							<li><a href="#">Wood</a></li>
+							<li><a href="#">Metal</a></li>
+							<li><a href="#">Sizes</a></li>
+							<li><a href="#">Women</a></li>
+							<li><a href="#">Wardrobes</a></li>
+							<li><a href="#">Latest</a></li>
+							<li><a href="#">Kitchen</a></li>
+							<li><a href="#">Tables</a></li>
+							<li><a href="#">Modern</a></li>
+							<li><a href="#">Colors</a></li>
+							<li><a href="#">Shelves</a></li>
+							<li><a href="#">Stools</a></li>
+							<li><a href="#">Pouffes</a></li>
+					        <li><a href="#">Women</a></li>
+							<li><a href="#">Bedroom</a></li>
+						</ul>
+						<a href="#" class="link1">View all tags</a>
+				    </div>
+				     <div class="tags">
+				      	<h4 class="tag_head">Articles Experts</h4>
+				      	 <ul class="article_links">
+							<li><a href="#">Eleifend option congue nihil</a></li>
+							<li><a href="#">Investigationes demonst</a></li>
+							<li><a href="#">Qui sequitur mutationem</a></li>
+							<li><a href="#">videntur parum clar sollemnes</a></li>
+							<li><a href="#">ullamcorper suscipit lobortis</a></li>
+							<li><a href="#">commodo consequat. Duis autem</a></li>
+							<li><a href="#">Investigationes demonst</a></li>
+							<li><a href="#">ullamcorper suscipit lobortis</a></li>
+							<li><a href="#">Qui sequitur mutationem</a></li>
+							<li><a href="#">videntur parum clar sollemnes</a></li>
+							<li><a href="#">ullamcorper suscipit lobortis</a></li>
+						  </ul>
+						 <a href="#" class="link1">View all</a>
+				      </div>
+				</div>
+			   <div class="col-md-9">
+				<h3 class="m_1"></h3>
+				 <div class="content_grid">
+				   <!-- <div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem"> 
+				  	   <a href="#">
+						
+						   <div class="inner_content clearfix">
+							{% for p1 in all_pros %}
+							<div class="product_image">
+								<img src="{{p1.pic.url}}" class="img-responsive" alt=""/>
+								<a href="" class="button item_add item_1"> </a>	
+								 <div class="product_container">
+								   <div class="cart-left">
+									 <p class="title">{{p1.product_name}}</p>
+								   </div>
+								   <span class="amount item_price">${{p1.price}}</span>
+								   <div class="clearfix"></div>
+							     </div>		
+							  </div>
+							  {% endfor %}
+							  
+		                    </div>
+		                 </a>
+				    </div> -->
+				    <!-- <div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem"> 
+				  	   <a href="single.html">
+						   <div class="inner_content clearfix">
+							<div class="product_image">
+								<img src="{% static 'images/pic2.jpg' %}" class="img-responsive" alt=""/>
+								<a href="" class="button item_add item_1"> </a>		
+								<div class="product_container">
+								   <div class="cart-left">
+									 <p class="title">Lorem Ipsum 2015</p>
+								   </div>
+								   <span class="amount item_price">$1500.00</span>
+								   <div class="clearfix"></div>
+							     </div>		
+							</div>
+						</div>
+		                 </a>
+				    </div> -->
+				    <!-- <div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem last_1"> 
+				  	      <a href="single.html">
+						   <div class="inner_content clearfix">
+							<div class="product_image">
+								<img src="{% static 'images/pic3.jpg' %}" class="img-responsive" alt=""/>
+								<a href="" class="button item_add item_1"> </a>	
+								<div class="product_container">
+								   <div class="cart-left">
+									 <p class="title">Lorem Ipsum 2015</p>
+								   </div>
+								   <span class="amount item_price">$2000.00</span>
+								   <div class="clearfix"></div>
+							     </div>		
+							  </div>
+		                    </div>
+		                 </a>
+				   </div> -->
+				   <!-- <div class="clearfix"></div>
+			  </div> -->
+			  <div class="content_grid">
+				  
+				  <div class="clearfix"></div>
+			   </div>
+			   <h3 class="m_2">Top Products</h3>
+			   <!-- <div class="content_grid">
+			   		<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem"> 
+				  	   <a href="single.html">
+						   <div class="inner_content clearfix">
+							<div class="product_image">
+								<img src="{% static 'images/pic7.jpg' %}" class="img-responsive" alt=""/>
+								<a href="" class="button item_add item_1"> </a>		
+							    <div class="product_container">
+								   <div class="cart-left">
+									 <p class="title">Lorem Ipsum 2015</p>
+								   </div>
+								   <span class="amount item_price">$4500.00</span>
+								   <div class="clearfix"></div>
+							     </div>		
+							  </div>
+		                    </div>
+		                 </a>
+				    </div>
+				    <div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem"> 
+				  	     <a href="single.html">
+						   <div class="inner_content clearfix">
+							<div class="product_image">
+								<img src="{% static 'images/pic8.jpg' %}" class="img-responsive" alt=""/>
+								<a href="" class="button item_add item_1"> </a>		
+							    <div class="product_container">
+								   <div class="cart-left">
+									 <p class="title">Lorem Ipsum 2015</p>
+								   </div>
+								   <span class="amount item_price">$1050.00</span>
+								   <div class="clearfix"></div>
+							     </div>		
+							  </div>
+		                    </div>
+		                 </a>
+				    </div>-->
+					
+				    <!-- <div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem last_1"> 
+				  	  <a href="single.html">
+						   <div class="inner_content clearfix">
+							<div class="product_image">
+								<img src="{% static 'images/pic13.jpg' %}" class="img-responsive" alt=""/>
+								<a href="" class="button item_add item_1"> </a>	
+								 <div class="product_container">
+								   <div class="cart-left">
+									 <p class="title">Lorem Ipsum 2015</p>
+								   </div>
+								   <span class="amount item_price">$2000.00</span>
+								   <div class="clearfix"></div>
+							     </div>		
+							  </div>
+		                    </div>
+		                 </a>
+				    </div> -->
+				    <div class="clearfix"></div>
+			    </div>
+			    <h3 class="m_2"></h3>
+			   <div class="content_grid">
+			   		<!-- <div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem"> 
+				  	   <a href="single.html">
+						   <div class="inner_content clearfix">
+							<div class="product_image">
+								<img src="{% static 'images/pic10.jpg' %}" class="img-responsive" alt=""/>
+								<a href="" class="button item_add item_1"> </a>		
+								<div class="product_container">
+								   <div class="cart-left">
+									 <p class="title">Lorem Ipsum 2015</p>
+								   </div>
+								   <span class="amount item_price">$99.00</span>
+								   <div class="clearfix"></div>
+							     </div>		
+							  </div>
+		                    </div>
+		                 </a>
+				    </div> -->
+				    <!-- <div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem"> 
+				  	   <a href="single.html">
+						   <div class="inner_content clearfix">
+							<div class="product_image">
+								<img src="{% static 'images/pic11.jpg' %}" class="img-responsive" alt=""/>
+								<a href="" class="button item_add item_1"> </a>	
+								<div class="product_container">
+								   <div class="cart-left">
+									 <p class="title">Lorem Ipsum 2015</p>
+								   </div>
+								   <span class="amount item_price">$60.00</span>
+								   <div class="clearfix"></div>
+							     </div>		
+							  </div>
+		                    </div>
+		                 </a>
+				    </div>-->
+					{% for i in all_pros %}
+				    <div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem last_1"> 
+				  	    <a href="single.html">
+						   <div class="inner_content clearfix">
+							<div class="product_image">
+								<img src="{{i.pic.url}}" class="img-responsive" alt=""/>
+								<a href="{% url 'add_to_cart' i.id %}" class="button item_add item_1"> </a>	
+								<div class="product_container">
+								   <div class="cart-left">
+									 <p class="title">{{i.product_name}}</p>
+								   </div>
+								   <span class="amount item_price">${{i.price}}</span>
+								   <div class="clearfix"></div>
+							     </div>		
+							  </div>
+		                    </div>
+		                 </a>
+				   </div> 
+				   {% endfor %}
+				   <div class="clearfix"></div>
+			    </div>
+			  </div>
+			</div>
+		 </div>
+		</div>
+		<div class="container">
+			<div class="brands">
+				<ul class="brand_icons">
+					<li><img src="{% static 'images/icon1.png' %}" class="img-responsive" alt=""/></li>
+					<li><img src="{% static 'images/icon2.png' %}" class="img-responsive" alt=""/></li>
+					<li><img src="{% static 'images/icon3.png' %}" class="img-responsive" alt=""/></li>
+					<li><img src="{% static 'images/icon4.png' %}" class="img-responsive" alt=""/></li>
+					<li class="last"><img src="{% static 'images/icon5.png' %}" class="img-responsive" alt=""/></li>
+				</ul>
+			</div>
+	    </div>
+	    <div class="container">
+			<div class="instagram_top">
+				<div class="instagram text-center">
+					<h3>Our Collections</h3>
+				</div>
+				<ul class="instagram_grid">
+				  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i1.jpg' %}" class="img-responsive"alt=""/></a></li>
+				  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i2.jpg' %}" class="img-responsive" alt=""/></a></li>
+				  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i3.jpg' %}" class="img-responsive" alt=""/></a></li>
+				  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i4.jpg' %}" class="img-responsive" alt=""/></a></li>
+				  <li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i5.jpg' %}" class="img-responsive" alt=""/></a></li>
+				  <li class="last_instagram"><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i6.jpg' %}" class="img-responsive" alt=""/></a></li>
+				  <div class="clearfix"></div>
+				  <div id="small-dialog1" class="mfp-hide">
+					<div class="pop_up">
+						<h4>A Sample Photo Stream</h4>
+						<img src="{% static 'images/i_zoom.jpg' %}" class="img-responsive" alt=""/>
+					</div>
+				  </div>
+				</ul>
+			</div>
+			<ul class="footer_social">
+				<li><a href="#"><i class="tw"> </i> </a></li>
+				<li><a href="#"> <i class="fb"> </i> </a></li>			
+				<li><a href="#"><i class="pin"> </i> </a></li>
+				<div class="clearfix"></div>
+			</ul>
+	    </div>
+    </div>
+    <div class="footer">
+		<div class="container">
+			<div class="footer-grid">
+				<h3>Category</h3>
+				<ul class="list1">
+				  <li><a href="index.html">Home</a></li>
+				  <li><a href="about.html">About us</a></li>
+				  <li><a href="about.html">Eshop</a></li>
+				  <li><a href="about.html">Features</a></li>
+				  <li><a href="about.html">New Collections</a></li>
+				  <li><a href="typo.html">Typo</a></li>
+				  <li><a href="contact.html">Contact</a></li>
+				</ul>
+			</div>
+			<div class="footer-grid">
+				<h3>Our Account</h3>
+				<ul class="list1">
+				  <li><a href="login.html">Your Account</a></li>
+				  <li><a href="contact.html">Personal information</a></li>
+				  <li><a href="contact.html">Addresses</a></li>
+				  <li><a href="#">Discount</a></li>
+				  <li><a href="checkout.html">Orders history</a></li>
+				  <li><a href="about.html">Search Terms</a></li>
+				</ul>
+			</div>
+			<div class="footer-grid">
+				<h3>Our Support</h3>
+				<ul class="list1">
+				  <li><a href="contact.html">Site Map</a></li>
+				  <li><a href="about.html">Search Terms</a></li>
+				  <li><a href="about.html">Advanced Search</a></li>
+				  <li><a href="about.html">Mobile</a></li>
+				  <li><a href="contact.html">Contact Us</a></li>
+				  <li><a href="contact.html">Mobile</a></li>
+				  <li><a href="contact.html">Addresses</a></li>
+				</ul>
+			</div>
+			<div class="footer-grid">
+				<h3>Newsletter</h3>
+				<p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+				<div class="search_footer">
+				  <input type="text" class="text" value="Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email';}">
+				  <input type="submit" value="Subscribe">
+				</div>
+				<img src="{% static 'images/payment.png' %}" class="img-responsive" alt=""/>
+			</div>
+			 <div class="clearfix"> </div>
+		</div>
+	</div>
+	<div class="footer_bottom">
+		<div class="container">
+			<div class="copy">
+			   <p>Copyright &copy; 2015 Luxury Furnish. All Rights Reserved . Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>		

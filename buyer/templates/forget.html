@@ -1,0 +1,81 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+	
+    <div class="col-md-9">
+			    <div class="dreamcrub">
+			   	 <ul class="breadcrumbs">
+                    <li class="home">
+                       <a href="{% url 'index' %}" title="Go to Home Page">Home</a>&nbsp;
+                       <span>&gt;</span>
+                    </li>
+                    
+                    <li class="home">
+						<a href="{% url 'login' %}" title="Go to Home Page">Login</a>&nbsp;
+						<!-- <span>&gt;</span> -->
+					 </li>
+                </ul>
+                
+                <div class="clearfix"></div>
+			   </div>
+			   <div class="account_grid">
+			   <div class="col-md-6 login">
+			  	 
+				 <a class="acount-btn" href="{% url 'register' %}">Create an Account</a>
+			   </div>
+			   <div class="col-md-6 login-right">
+			  	<h3>FOR GETTING PASSWORD</h3>
+				<p>If you forget your password , please enter your email-address.</p>
+				<form action ='{% url "forget" %}' method="post">
+					{% csrf_token %}
+					<p><b>{{msg}}</b></p>
+				  <div>
+					<span>Email Address<label>*</label></span>
+					<input type="text" name = 'email'> 
+				  </div>
+				  
+				  <input type="submit" value="Submit">
+				  
+			    </form>
+			   </div>	
+			   <div class="clearfix"> </div>
+			 </div>
+		   </div>
+		  </div>
+	     </div>
+	    </div>
+	    </div>
+
+		
+		<div class="container">
+	    <!-- </div>
+	    <div class="container">
+			<div class="instagram_top">
+				<div class="instagram text-center">
+					<h3>Our Collections</h3>
+				</div>
+				<ul class="instagram_grid">
+					<li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i1.jpg' %}" class="img-responsive"alt=""/></a></li>
+					<li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i2.jpg' %}" class="img-responsive" alt=""/></a></li>
+					<li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i3.jpg' %}" class="img-responsive" alt=""/></a></li>
+					<li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i4.jpg' %}" class="img-responsive" alt=""/></a></li>
+					<li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i5.jpg' %}" class="img-responsive" alt=""/></a></li>
+					<li class="last_instagram"><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i6.jpg' %}" class="img-responsive" alt=""/></a></li>
+					<div class="clearfix"></div>
+					<div id="small-dialog1" class="mfp-hide">
+						<div class="pop_up">
+							<h4>A Sample Photo Stream</h4>
+							<img src="{% static 'images/i_zoom.jpg' %}" class="img-responsive" alt=""/>
+						</div>
+					</div>
+				</ul>
+			</div>
+			<ul class="footer_social">
+				<li><a href="#"><i class="tw"> </i> </a></li>
+				<li><a href="#"> <i class="fb"> </i> </a></li>			
+				<li><a href="#"><i class="pin"> </i> </a></li>
+				<div class="clearfix"></div>
+			</ul>
+	    </div> -->
+    </div>
+    {% endblock %}
