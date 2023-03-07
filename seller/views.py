@@ -10,7 +10,8 @@ from django.conf import settings
 def seller_index(request):
     try:
         seller_obj = Seller.objects.get(email = request.session['s_email'])
-        return render(request,'seller_index.html',{'seller_data':seller_obj})
+        all_order = MyOrder.objects.filter(product__seller = seller_obj)
+        return render(request,'seller_index.html',{'seller_data':seller_obj,'order_data':all_order})
     except:
         return render(request,'signin.html')
 
@@ -129,6 +130,17 @@ def delete_products(request,pk):
     return redirect('my_products') 
 
 
+
+def my_order(request):
+     seller_obj = Seller.objects.get(email = request.session['s_email'])
+     all_order = MyOrder.objects.filter(product__seller = seller_obj)
+     return render(request,'my_order.html',{'order_data':all_order,'seller_data':seller_obj})
+
         
             
+def change_status(request,pk):
+    row_obj = MyOrder.objects.get(id =pk)
+    row_obj.status = 'Dispatched'
+    row_obj.save()
 
+    return redirect('my_order')

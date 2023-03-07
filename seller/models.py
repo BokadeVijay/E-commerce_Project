@@ -25,5 +25,13 @@ class Product(models.Model):
         return self.product_name
     
 class MyOrder(models.Model):
-    
+    all_status = [
+        ('pending', 'pending'),
+        ('dispatched', 'dispatched')
+    ]
+    buyer = models.ForeignKey(to = 'buyer.Buyer',on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    status = models.CharField(max_length=50,default='pending')
 
+    def __str__(self) -> str:
+        return str(self.id)

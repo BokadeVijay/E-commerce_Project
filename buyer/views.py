@@ -36,7 +36,7 @@ def register(request):
             if request.POST['password'] == request.POST['repassword']:
                 global c_otp
                 c_otp = random.randint(100_000, 999_999)
-                subject = f'OTP VARIFICATION'
+                subject = f'OTP VERIFICATION'
                 message = f'Use This Code To Verifying Account Safely\n{c_otp}'
                 from_mail = settings.EMAIL_HOST_USER
                 r_list = [request.POST['email']]
@@ -224,6 +224,11 @@ def paymenthandler(request):
                     session_user = Buyer.objects.get(email = request.session['email'])
                     c_obj = Cart.objects.filter(buyer = session_user)
                     for i in c_obj:
+                        MyOrder.objects.create(
+                            buyer = session_user,
+                            product = i.product,
+                            status = 'pending'
+                        )
                         i.delete()
                    
 

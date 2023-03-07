@@ -99,7 +99,7 @@ var _mfpOn = function(name, f) {
 		if( s['transition'] !== undefined ) {
 			return true; 
 		}
-			
+		
 		while( v.length ) {
 			if( v.pop() + 'Transition' in s ) {
 				return true;
