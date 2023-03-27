@@ -61,6 +61,14 @@
             <span class="nav-link-text ms-1">My Products</span>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'my_order' %}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">My Orders</span>
+          </a>
+        </li>
         <!-- <li class="nav-item">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
@@ -286,7 +294,6 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Buyer Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Picture</th>
-
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                       
@@ -315,7 +322,7 @@
                         <span class="text-secondary text-xs font-weight-bold">{{i.status}}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold"><a href="{% url 'change_status' i.id %}"><button style="background-color: brown;">Done</button></a></span>
+                        <span class="text-secondary text-xs font-weight-bold"><a href="{% url 'change_status' i.id %}"><button style="background-color:white">Done</button style="color:white"></a></span>
                       </td>
  {% endfor %}
                       </tr>

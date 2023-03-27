@@ -18,6 +18,7 @@ urlpatterns = [
     path('cart/',cart,name = 'cart'),
     path('del_cart_data/<int:pk>',del_cart_data,name = 'del_cart_data'),
     path('cart/paymenthandler/',paymenthandler,name = 'paymenthandler'),
+    path('view_orders/',view_orders,name = 'view_orders')
 
 
 

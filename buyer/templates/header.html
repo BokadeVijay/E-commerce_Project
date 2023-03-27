@@ -48,15 +48,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="header">	
       <div class="container"> 
          <div class="header-top">
-			<div class="header_right">
+			<div class="">
       		 <div class="">
 				<a href="index.html">
 					{% if user_data %}
-					<h6><img src="{{user_data.pic.url}}" alt="" width="110px"><br><br><a style="color: rgba(139, 0, 132, 0.689); background-color: rgb(255, 240, 253);"><h4>{{user_data.first_name}}</h4></a>
-					{% endif %}</a>
+					<img src="{{user_data.pic.url}}" alt="" width="110px"><br><br>
+					<h4><button style="background-color:black" disabled><h4>{{user_data.first_name}}</h4></button> </h4>
+
+					{% else %}
+					<div class="logo">
+						<a href="index.html"><h6>Luxury Furnish</h6><h2>{{user_data.first_name}}</h2></a>
+					 </div>
+						{% endif %}</a>
 			 </div>
 			</div>
-		   <div class="header_left">
+		   <div class="header_right">
 			 <ul class="social">
 				<li><a href=""> <i class="fb"> </i> </a></li>
 				<li><a href=""><i class="tw"> </i> </a></li>
@@ -69,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 {% else %}
 			 <li>
 				
-				<a><b><h3>User</h3></b></a>
+				
 				
 				</li>
 
@@ -94,17 +100,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    		 			<div class='clearfix'></div>
    		 		</ul>
    		 		<div class="cart_bg">
+					{% if user_data %}
 	   		 	  <ul class="cart">
-	   		 		 <a href="checkout.html">
-					    <h4><i class="cart_icon"> </i><p>Cart: <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</p><div class="clearfix"> </div></h4>
-					 </a>
-				     <h5 class="empty"><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></h5>
-				     <div class="clearfix"> </div>
+				     {% endif %}
+					 <div class="clearfix"> </div>
                   </ul>
 	   		 	</div>
 			  	<ul class="quick_access">
-   		 			<li class="view_cart"><a href="checkout.html">View Cart</a></li>
-   		 			<li class="check"><a href="checkout.html">Checkout</a></li>
+					{% if user_data %}
+   		 			
+					{% endif %}
    		 			<div class='clearfix'></div>
    		 		</ul>
    		 		<div class="search">
@@ -120,10 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  			</div>
    		 	</div>
    		 	<div class="banner_right">
-   		 		<h1>Lorem Ipsum simply <br>dummy text</h1>
-   		 		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
-   		 		<a href="#" class="banner_btn">Buy Now</a>
-   		 	</div>
+   		 		
 				{% endif %}
    		 	<div class='clearfix'></div>
 	    </div>
@@ -180,8 +182,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <h3>Newsletter</h3>
                             <p class="footer_desc">Nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                             <div class="search_footer">
-                              <input type="text" class="text" value="Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email';}">
-                              <input type="submit" value="Subscribe">
                             </div>
                             <img src="{% static 'images/payment.png' %}" class="img-responsive" alt=""/>
                         </div>

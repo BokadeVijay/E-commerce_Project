@@ -131,12 +131,11 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'vijaybokade26@gmail.com'
-EMAIL_HOST_PASSWORD = 'idspqphumqqklntt'
-
+EMAIL_HOST_PASSWORD = 'dsmflaspucdoggyk'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-RAZOR_KEY_ID = 'rzp_test_EpXhSbCq7rpl3v'
-RAZOR_KEY_SECRET  = 'TAAhY5w7Nz12D6vD9UIBLjIk'
+RAZOR_KEY_ID = 'rzp_test_ewM7A97SHPmvOl'
+RAZOR_KEY_SECRET  = 'ybFKSbLoQlCrBYyJrQV2abDY'

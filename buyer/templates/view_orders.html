@@ -64,32 +64,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 </div>  
 		 <div class="about_box">
 			<ul class="login">
-				<div class="banner_wrap">
-					<div class="bannertop_box">
 				
-			
-				<li class="login_text"><a href="{% url 'login' %}">.    </a></li>
-
-				<li class="wish"><a href="checkout.html">   </a></li>
 				<div class='clearfix'></div>
 		    </ul>
 		    <ul class="quick_access">
+				<p>.</p>
 				<div class='clearfix'></div>
 		     </ul>
+			 
 			<div class="search">
 			   <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
 			   <input type="submit" value="">
 			</div>
-			<div class="welcome_box" >
-				
+			<div class="welcome_box">
 				{% if user_data %}
 				<li class="login_text"><a href="{% url 'index' %}"style="color:white">Home</a></li><br>
-				  <li class="login_text"><a href="{% url 'logout' %}"style="color:white">Logout</a></li><br>
 
-				  <li class="login_text"><a href="{% url 'view_orders' %}"style="color:white">My Orders</a></li>
+				  <li class="login_text"><a href="{% url 'logout' %}"style="color:white">Logout</a></li>
 				  <br>
 				  <li class="login_text"><a href="{% url 'edit_profile' %}"style="color:white">Profile</a></li>
 				  <br>
+				  <li class="view_cart"><a href="{% url 'cart' %}"style="color:white">View Cart</a></li>
 				  <br>
 
 
@@ -106,7 +101,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   <div class="container">
 		  <div class="check_box">	 
 		<div class="col-md-9 cart-items">
-			 <h1>My Shopping Bag </h1>
+			 <h1>My Orders </h1>
+			 
+
 				<!-- <script>$(document).ready(function(c) {
 					$('.close1').on('click', function(c){
 						$('.cart-header').fadeOut('slow', function(c){
@@ -145,13 +142,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					});	  
 				});
 				</script>
-				{% for i in my_cart_data %}
+				{% for i in all_order %}
 			 <div class="cart-header2">
 				 <div class=""> 
 					<br>
 
 				 </div>
 				  <div class="cart-sec simpleCart_shelfItem">
+					{{i.date}}
+					<p>{{i.time}}</p>
 						<div class="cart-item cyc">
 							 <img src="{{i.product.pic.url}}" class="img-responsive"width = '350px' alt="">
 						</div>
@@ -164,8 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						</ul>
 							 <div class="delivery">
-							 <b><p>Price : Rs.{{i.product.price}}</p></b>
-							 <span><a href="{% url 'del_cart_data' i.id %}"  style="color: white;"><button style="background-color: black;">Remove</button></a></span>
+							 <b><p>Price : Rs.${{i.product.price}}</p></b>
 							 <div class="clearfix"></div>
 				        </div>	
 					   </div>
@@ -176,25 +174,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			  {% endfor %}	
 		 </div>
 		 <div class="col-md-3 cart-total">
-			 <a class="continue" href="#">Continue to basket</a>
-			 <div class="price-details">
+			 {% comment %} <a class="continue" href="#">Continue to basket</a> {% endcomment %}
+			 {% comment %} <div class="price-details">
 				 <h3>Price Details</h3>
 				 <span>Total</span>
 				 <span class="total1">{{total_amount}}</span>
 				 <span>Discount</span>
 				 <span class="total1">---</span>
 				 <div class="clearfix"></div>				 
-			 </div>	
-			 <ul class="total_price">
+			 </div>	 {% endcomment %}
+			 {% comment %} <ul class="total_price">
 			   <li class="last_price"> <h4>TOTAL</h4></li>	
-			   <li class="last_price"><span>{{total_amount}}</span></li>
-			   <div class="clearfix"> </div>
+			   <li class="last_price"><span>${{total_amount}}</span></li>
+			   <div class="clearfix"> </div> {% endcomment %}
 			 </ul>
 			 <br>
 			
 			 
 			 <div class="clearfix"></div>
-			 <a class="continue" id="pay-btn">Make a Payment </a>	
+			 {% comment %} <a class="continue" id="pay-btn">Make a Payment </a>	 {% endcomment %}
 		 <!-- <div class="total-item">
 				 <h3>OPTIONS</h3>
 				 <h4>COUPONS</h4>

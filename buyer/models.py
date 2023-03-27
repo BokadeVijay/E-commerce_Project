@@ -20,4 +20,15 @@ class Cart(models.Model):
 
     def __str__(self) -> str:
         return str(self.buyer)
+    
+class ViewOrders(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE) 
+    buyer = models.ForeignKey(Buyer, on_delete=models.CASCADE)
+    time = models.TimeField(auto_now_add=True)
+    date = models.DateField( auto_now_add=True)
+
+    def __str__(self) -> str:
+        return str(self.buyer)
+
+    
 

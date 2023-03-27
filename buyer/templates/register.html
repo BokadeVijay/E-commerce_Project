@@ -9,17 +9,17 @@
 				{% csrf_token %}
 				<p><b>{{msg}}</b></p>
 				 <div class="register-top-grid">
-					<h3>PERSONAL INFORMATION</h3>
+					<h3 >PERSONAL INFORMATION</h3>
 					 <div>
-						<span>First Name<label>*</label></span>
+						<span style="color:aqua">First Name<label>*</label></span>
 						<input type="text"name = 'first_name'> 
 					 </div>
 					 <div>
-						<span>Last Name<label>*</label></span>
+						<span style="color:aqua">Last Name<label>*</label></span>
 						<input type="text"name = 'last_name'> 
 					 </div>
 					 <div>
-						 <span>Email Address<label>*</label></span>
+						 <span style="color:aqua">Email Address<label>*</label></span>
 						 <input type="text"name = 'email'> 
 					 </div>
 					 
@@ -27,11 +27,11 @@
 				     <div class="register-bottom-grid">
 						   
 							 <div>
-								<span>Password<label>*</label></span>
+								<span style="color:aqua">Password<label>*</label></span>
 								<input type="text" name = 'password'>
 							 </div>
 							 <div>
-								<span>Confirm Password<label>*</label></span>
+								<span style="color:aqua">Confirm Password<label>*</label></span>
 								<input type="text" name = 'repassword'>
 							 </div>
 					 </div>
@@ -40,7 +40,7 @@
 				<div class="register-but">
 				   
 					   <input type="submit" value="submit" style="background-color: rgb(255, 20, 114);">&nbsp; &nbsp;
-					   <a class="login" href="{% url 'login' %}" style="color: red;">Login</a>
+					   <a class="login" href="{% url 'login' %}" style="color:red;">Login</a>
 					   <div class="clearfix"> </div>
 					   
 				   

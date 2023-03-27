@@ -5,11 +5,12 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.http import HttpResponse
 from seller.models import Product
+
 import razorpay
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseBadRequest
 
-# Create your views here.
+# Create your views here.o
 
 
 def index(request):
@@ -165,14 +166,15 @@ def cart(request):
     # for i in c_list:
     #     print(i.product.product_name)
     global total
-    total = 0
+    total = 0 
     for i in c_list:
         total += i.product.price
 
     currency = 'INR'
     
     if total == 0:
-        total += 1
+        return render(request,'cart.html',{'user_data': user_obj, 'my_cart_data': c_list, 'total_amount': total})
+
     amount = total * 100 
 
     # Create a Razorpay Order
@@ -224,6 +226,13 @@ def paymenthandler(request):
                     session_user = Buyer.objects.get(email = request.session['email'])
                     c_obj = Cart.objects.filter(buyer = session_user)
                     for i in c_obj:
+                        ViewOrders.objects.create(
+                            product = i. product,
+                            buyer = session_user
+                        )
+
+
+                    for i in c_obj:
                         MyOrder.objects.create(
                             buyer = session_user,
                             product = i.product,
@@ -233,7 +242,7 @@ def paymenthandler(request):
                    
 
                     # capture the payemt
-                    return render(request,'paymentsuccess.html')
+                    return redirect('cart')
                 except:
 
                     # if there is an error while capturing payment.
@@ -257,3 +266,9 @@ def del_cart_data(request, pk):
     c_item.delete()
 
     return redirect('cart')
+
+
+def view_orders(request):
+    session_user = Buyer.objects.get(email = request.session['email'])
+    view_obj = ViewOrders.objects.all()
+    return render(request,'view_orders.html',{'all_order':view_obj,"user_data":session_user})

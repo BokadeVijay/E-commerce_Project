@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="container"> 
          <div class="header-top">
       		 <div class="logo">
-				<a href="index.html"><h6>Hello</h6><h2>{{user_data.first_name}}</h2></a>
+				<a href="index.html">Wel come   to <h6>Luxury Furnish</h6><h2>{{user_data.first_name}}</h2></a>
 			 </div>
 		   <div class="header_right">
 			 <ul class="social">
@@ -53,7 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li><a href=""><i class="tw"> </i> </a></li>
 				<li><a href=""><i class="utube"> </i> </a></li>
 				<li><a href=""><i class="pin"> </i> </a></li>
-				<li><a href=""><i class="instagram"> </i> </a></li>
+				<li><a href="https://www.instagram.com/"><i class="instagram"> </i> </a></li>
 				
 			 </ul>
 			 {% if user_data %}	
@@ -65,17 +65,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 {% else %}
 			 <li>
 				
-				<a><b><h3>User</h3></b></a>
 				
 				</li>
 
 			 {% endif %}
 			
 		    <div class="lang_list">
-			  <select tabindex="4" class="dropdown">
 				{% if user_data %}
-				<option value="" class="label" value=""></option>
-				<option value="1"><a href="{% url 'logout' %}">logout</a></option>
+				
 				
 				
 				<option value="1"></option>
@@ -97,31 +94,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 
    		 		<ul class="login">
-					{% if user_data %}
-					<li class="login_text"><a href="{% url 'logout' %}">Logout</a></li>
-					<li class="wish"><a href="{% url 'edit_profile' %}">edit_profile</a></li>
-					<br>
-					<li class="wish"><a href="{% url 'edit_profile' %}">Reset_password</a></li>
-
-					{% else %}
-   		 			<li class="login_text"><a href="{% url 'login' %}">Login</a></li>
-					<li class="wish"><a href="{% url 'register' %}">Register</a></li>
-					{% endif %}
+					
    		 			
    		 			<div class='clearfix'></div>
    		 		</ul>
    		 		<div class="cart_bg">
+					
 	   		 	  <ul class="cart">
-	   		 		 <a href="{% url 'cart' %}">
-					    <h4><i class="cart_icon"> </i><p>Cart: <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</p><div class="clearfix"> </div></h4>
-					 </a>
-				     <h5 class="empty"><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></h5>
+	   		 		
 				     <div class="clearfix"> </div>
                   </ul>
 	   		 	</div>
 			  	<ul class="quick_access">
-   		 			<li class="view_cart"><a href="{% url 'cart' %}">View Cart</a></li>
-   		 			<li class="check"><a href="{% url 'cart' %}">Checkout</a></li>
+					
    		 			<div class='clearfix'></div>
    		 		</ul>
    		 		<div class="search">
@@ -129,9 +114,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				   <input type="submit" value="">
 	  			</div>
 	  			<div class="welcome_box">
-	  				<h3>Welcome to windsur</h3>
-	  				<p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
-	  			</div>
+	  			{% if user_data %}
+					<li class="login_text"><a href="{% url 'logout' %}"style="color:white">Logout</a></li><br>
+
+					<li class="login_text"><a href="{% url 'view_orders' %}"style="color:white">My Orders</a></li>
+					<br>
+					<li class="login_text"><a href="{% url 'edit_profile' %}"style="color:white">Profile</a></li>
+					<br>
+					<li class="view_cart"><a href="{% url 'cart' %}"style="color:white">View Cart</a></li>
+					<br>
+
+
+					{% else %}
+					<li class="wish"><a href="{% url 'register' %}"style="color:white">Register</a></li>
+					<br>
+   		 			<li class="login_text"><a href="{% url 'login' %}"style="color:white">Login</a></li>
+					{% endif %}
+					</div>
    		 	</div>
 			<div class="header-top">
    		 	<div class="header_right">
@@ -139,7 +138,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					{% if user_data %}
 					<h6><img src="{{user_data.pic.url}}" alt="" width="115px"></h6>
 					<br>
-					<h4>  <a style="color: rgb(80, 208, 255);"> {{user_data.first_name}}</a> </h4>
+					<h4>  <a style="color: rgb(80, 208, 255);"><button style="background-color:black"><h4>{{user_data.first_name}}</h4></button></a> </h4>
+					{% else %}
+					<h6><img src="{{user_data.pic.url}}" alt="" width="115px"></h6>
+
+					<h4>  <a style="color: rgb(80, 208, 255);"><button style="background-color:black"><h4>User</h4></button></a> </h4>
+
 					{% endif %}</a>
 			 </div>
 			 </div>
@@ -376,7 +380,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  	    <a href="single.html">
 						   <div class="inner_content clearfix">
 							<div class="product_image">
-								<img src="{{i.pic.url}}" class="img-responsive" alt=""/>
+								<img src="{{i.pic.url}}" style="min-height: 250px; min-width: 250px;" class="img-responsive" alt=""/>
 								<a href="{% url 'add_to_cart' i.id %}" class="button item_add item_1"> </a>	
 								<div class="product_container">
 								   <div class="cart-left">
