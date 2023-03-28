@@ -12,6 +12,8 @@ from django.http import HttpResponseBadRequest
 
 # Create your views here.o
 
+def first(request):
+    return render(request,'first.html')
 
 def index(request):
     all_pros = Product.objects.all()
@@ -272,3 +274,6 @@ def view_orders(request):
     session_user = Buyer.objects.get(email = request.session['email'])
     view_obj = ViewOrders.objects.all()
     return render(request,'view_orders.html',{'all_order':view_obj,"user_data":session_user})
+ 
+ def feedback(request):
+    return render(request,'feedback.html') 

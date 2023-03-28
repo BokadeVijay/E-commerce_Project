@@ -7,6 +7,7 @@ urlpatterns = [
 
     path('',index,name = 'index'),
     path('about/',about,name = 'about'),
+    path('feedback/',feedback,name = 'feedback'),
     path('register/',register,name = 'register'),
     path('login/',login,name = 'login'),
     path('otp/',otp,name = 'otp'),

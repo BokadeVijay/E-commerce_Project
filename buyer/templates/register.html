@@ -9,17 +9,17 @@
 				{% csrf_token %}
 				<p><b>{{msg}}</b></p>
 				 <div class="register-top-grid">
-					<h3 >PERSONAL INFORMATION</h3>
+					<h3  style='color:blue'>PERSONAL INFORMATION</h3>
 					 <div>
-						<span style="color:aqua">First Name<label>*</label></span>
+						<span style="color:red">First Name<label>*</label></span>
 						<input type="text"name = 'first_name'> 
 					 </div>
 					 <div>
-						<span style="color:aqua">Last Name<label>*</label></span>
+						<span style="color:red">Last Name<label>*</label></span>
 						<input type="text"name = 'last_name'> 
 					 </div>
 					 <div>
-						 <span style="color:aqua">Email Address<label>*</label></span>
+						 <span style="color:red">Email Address<label>*</label></span>
 						 <input type="text"name = 'email'> 
 					 </div>
 					 
@@ -27,11 +27,11 @@
 				     <div class="register-bottom-grid">
 						   
 							 <div>
-								<span style="color:aqua">Password<label>*</label></span>
+								<span style="color:red">Password<label>*</label></span>
 								<input type="text" name = 'password'>
 							 </div>
 							 <div>
-								<span style="color:aqua">Confirm Password<label>*</label></span>
+								<span style="color:red">Confirm Password<label>*</label></span>
 								<input type="text" name = 'repassword'>
 							 </div>
 					 </div>
@@ -39,7 +39,7 @@
 				<div class="clearfix"> </div>
 				<div class="register-but">
 				   
-					   <input type="submit" value="submit" style="background-color: rgb(255, 20, 114);">&nbsp; &nbsp;
+					   <input type="submit" value="Submit" style = " background-color : dangers">&nbsp; &nbsp;
 					   <a class="login" href="{% url 'login' %}" style="color:red;">Login</a>
 					   <div class="clearfix"> </div>
 					   
@@ -49,7 +49,7 @@
 		   </div>
 	     </div>
 	    </div>
-		<div class="container">
+		{% comment %} <div class="container">
 			<div class="brands">
 				<ul class="brand_icons">
 					<li><img src='{% static "images/icon1.png" %}' class="img-responsive" alt=""/></li>
@@ -59,13 +59,13 @@
 					<li class="last"><img src='{% static "images/icon5.png" %}' class="img-responsive" alt=""/></li>
 				</ul>
 			</div>
-	    </div>
-	    <div class="container">
-			<div class="instagram_top">
+	    </div> {% endcomment %}
+	    {% comment %} <div class="container"> {% endcomment %}
+			{% comment %} <div class="instagram_top">
 				<div class="instagram text-center">
 					<h3>Our Collections</h3>
-				</div>
-				<ul class="instagram_grid">
+				</div> {% endcomment %}
+				{% comment %} <ul class="instagram_grid">
 					<li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i1.jpg' %}" class="img-responsive"alt=""/></a></li>
 					<li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i2.jpg' %}" class="img-responsive" alt=""/></a></li>
 					<li><a class="popup-with-zoom-anim" href="#small-dialog1"><img src="{% static 'images/i3.jpg' %}" class="img-responsive" alt=""/></a></li>
@@ -79,14 +79,14 @@
 							<img src="{% static 'images/i_zoom.jpg' %}" class="img-responsive" alt=""/>
 						</div>
 					</div>
-				</ul>
+				</ul> {% endcomment %}
 			</div>
-			<ul class="footer_social">
+			{% comment %} <ul class="footer_social">
 				<li><a href="#"><i class="tw"> </i> </a></li>
 				<li><a href="#"> <i class="fb"> </i> </a></li>			
 				<li><a href="#"><i class="pin"> </i> </a></li>
 				<div class="clearfix"></div>
-			</ul>
+			</ul> {% endcomment %}
 	    </div>
     </div>
     {% endblock %}
